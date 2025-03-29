@@ -1,2 +1,1 @@
-# Android.calc
-Calculator to java android
+# graphic sum calc
