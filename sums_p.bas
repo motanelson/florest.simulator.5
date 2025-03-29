@@ -1,5 +1,6 @@
 dim x as double=200
 dim y as double=100
+dim ttt as integer=12
 'eu a4
 dim colors as integer=14
 dim colors2 as integer=0
@@ -34,19 +35,22 @@ print a
 open a for input as #1
 while t
         line input #1, aa
-        print aa
-        fts(ccc)=val(ltrim(rtrim(aa)))
-        print(fts(ccc))
-        ftt=ftt+fts(ccc)
-        ft(ccc)=ftt
-        ccc=ccc+1
-        if eof(1) then t=0
+        aa=rtrim(ltrim(aa))
+        if(aa<>"")then
+            fts(ccc)=val(ltrim(rtrim(aa)))
+        
+            ftt=ftt+fts(ccc)
+            print fts(ccc);ftt
+            ft(ccc)=ftt
+            ccc=ccc+1
+            if eof(1) then t=0
+        end if
 wend
 close #1
 screen 12
 color 0,colors
 cls
-y=8*(ccc+3)
+y=ttt*(ccc+3)
 
 dim graphic as any ptr= imagecreate(x, y, colors,4)
 
@@ -55,10 +59,10 @@ color 0
     counter=0
     counter2=0
     counter3=0
-    for n=0 to ccc
+    for n=0 to ccc-1
         
         
-        Draw String graphic,(5,n*8+8),rtrim(ltrim("="+str(ft(n))+"="+str(fts(n)))),colors2
+        Draw String graphic,(5,n*ttt+8),rtrim(ltrim("="+str(ft(n))+"="+str(fts(n)))),colors2
     
     next
     
